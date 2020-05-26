@@ -36,6 +36,18 @@ public class OverlayFocusView: UIView {
     
     let contentView = UIView()
     
+    static let gradientFirst = UIColor(red: 178/255, green: 35/255, blue: 233/255, alpha: 1) // rgb 178 35 233
+    static let gradientSecond = UIColor(red: 209/255, green: 43/255, blue: 201/255, alpha: 1) // rgb 209 43 201
+    static let gradientThird = UIColor(red: 247/255, green: 50/255, blue: 162/255, alpha: 1) // rgb 247 50 162
+    static let gradientFourth = UIColor(red: 254/255, green: 94/255, blue: 124/255, alpha: 1) // rgb 254 94 124
+    static let gradientFifth = UIColor(red: 255/255, green: 156/255, blue: 80/255, alpha: 1)
+    
+    let colorArray = [gradientFirst,
+    gradientSecond,
+    gradientThird,
+    gradientFourth,
+    gradientFifth]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addConstraints()
@@ -48,13 +60,44 @@ public class OverlayFocusView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.cornerRadius = contentView.bounds.height / 2
+        //contentView.layer.cornerRadius = contentView.bounds.height / 2
+        
+        contentView.layer.addSublayer(addGradientLayer())
+        contentView.layer.cornerRadius = 7
+        contentView.clipsToBounds = true
     }
     
+    func addGradientLayer() -> CAGradientLayer {
+        
+        removeSublayer(contentView, layerIndex: 0)
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: contentView.frame.size.width, height: contentView.frame.size.height)
+        gradientLayer.colors =  colorArray.map{$0.cgColor}
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        
+        return gradientLayer
+    }
+    
+    func removeSublayer(_ view: UIView, layerIndex index: Int) {
+        guard let sublayers = view.layer.sublayers else {
+            print("The view does not have any sublayers.")
+            return
+        }
+        if sublayers.count > index {
+            view.layer.sublayers!.remove(at: index)
+        } else {
+            print("There are not enough sublayers to remove that index.")
+        }
+    }
+    
+    
     private func addConstraints() {
-        contentView.backgroundColor = .lightGray
+        //contentView.backgroundColor = .red
         addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         let trailingConstraint = NSLayoutConstraint(
             item: self,
             attribute: .trailing,

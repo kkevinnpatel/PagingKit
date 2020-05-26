@@ -30,30 +30,44 @@ class TwoLineMenuViewController: UIViewController {
     var menuViewController: PagingMenuViewController?
     var contentViewController: PagingContentViewController?
     
-    
-    let dataSource: [(menu: (title: String, subTitle: String?, isEnabledPoo: Bool), content: UIViewController)] = [(title: "Martinez", subTitle: nil, isEnabledPoo: true), (title: "Alfred", subTitle: nil, isEnabledPoo: false), (title: "Louis", subTitle: "owner", isEnabledPoo: false), (title: "Justin", subTitle: nil, isEnabledPoo: false)].map {
+    let dataSource: [(menu: (title: String, isImageAvailabel: Bool), content: UIViewController)] = [
+        (title: "Martinez", isImageAvailabel: true),
+        (title: "Alfred", isImageAvailabel: true),
+        (title: "Louis", isImageAvailabel: false),
+        (title: "Justin", isImageAvailabel: false)
+        ].map {
         let title = $0.title
         let vc = UIStoryboard(name: "ContentTableViewController", bundle: nil).instantiateInitialViewController() as! ContentTableViewController
         return (menu: $0, content: vc)
     }
     
-    
+    /*
     lazy var firstLoad: (() -> Void)? = { [weak self, menuViewController, contentViewController] in
         menuViewController?.reloadData()
         contentViewController?.reloadData()
         self?.firstLoad = nil
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         menuViewController?.register(nib: UINib(nibName: "TwoLineMenuCell", bundle: nil), forCellWithReuseIdentifier: "identifier")
-        menuViewController?.registerFocusView(view: UnderlineFocusView())
+        
+        // menuViewController?.registerFocusView(view: UnderlineFocusView())
+        
+        menuViewController?.registerFocusView(view: OverlayFocusView(), isBehindCell: true)
+        
+        contentViewController?.scrollView.bounces = false
+        contentViewController?.reloadData(with: 0)
+        
+        //contentViewController?.scrollView.bounces = false
+        //contentViewController?.reloadData(with: 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        firstLoad?()
+        //firstLoad?()
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,12 +88,15 @@ class TwoLineMenuViewController: UIViewController {
 }
 
 extension TwoLineMenuViewController: PagingMenuViewControllerDataSource {
+    
     func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
+        
         let cell = viewController.dequeueReusableCell(withReuseIdentifier: "identifier", for: index)  as! TwoLineMenuCell
-        cell.imageView.image = dataSource[index].menu.isEnabledPoo ? #imageLiteral(resourceName: "Poo") : nil
-        cell.imageView.isHidden = !dataSource[index].menu.isEnabledPoo
+       
+        cell.imageView.image = dataSource[index].menu.isImageAvailabel ? #imageLiteral(resourceName: "Poo") : nil
+        cell.imageView.isHidden = !dataSource[index].menu.isImageAvailabel
         cell.titleLabel.text = dataSource[index].menu.title
-        cell.subTitleLabel.text = dataSource[index].menu.subTitle
+        
         return cell
     }
     

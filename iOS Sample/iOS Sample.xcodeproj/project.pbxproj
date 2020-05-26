@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036E2A6B246278A2000534BC /* awesomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 036E2A6A246278A2000534BC /* awesomeIcon.png */; };
 		2B140598218EB84C00474615 /* NavigationBarMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B140597218EB84C00474615 /* NavigationBarMenuCell.xib */; };
 		2B14059A218EB8A000474615 /* NavigationBarMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B140599218EB8A000474615 /* NavigationBarMenuCell.swift */; };
 		2B14059C218EBAC200474615 /* NavigationBarFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14059B218EBAC200474615 /* NavigationBarFocusView.swift */; };
@@ -94,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		036E2A6A246278A2000534BC /* awesomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeIcon.png; sourceTree = "<group>"; };
 		2B140597218EB84C00474615 /* NavigationBarMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarMenuCell.xib; sourceTree = "<group>"; };
 		2B140599218EB8A000474615 /* NavigationBarMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarMenuCell.swift; sourceTree = "<group>"; };
 		2B14059B218EBAC200474615 /* NavigationBarFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarFocusView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		2B47E7421F10C13600D67C04 /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
+				036E2A6A246278A2000534BC /* awesomeIcon.png */,
 				2BBB70E91F9234E900320900 /* OverlayViewController.storyboard */,
 				2B47E72D1F10957100D67C04 /* OverlayViewController.swift */,
 			);
@@ -477,7 +480,7 @@
 				TargetAttributes = {
 					6E9827751F0A91F400860828 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = R33Y42SDDR;
+						DevelopmentTeam = 8DXNAW92P3;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -528,6 +531,7 @@
 				2B140598218EB84C00474615 /* NavigationBarMenuCell.xib in Resources */,
 				2BE47F081FA41AF40057A786 /* FullscreenViewController.storyboard in Resources */,
 				2B873AE31F974B3900F02D27 /* ModalViewController.storyboard in Resources */,
+				036E2A6B246278A2000534BC /* awesomeIcon.png in Resources */,
 				2B3C7CCB1F8CEF2200A43223 /* TwoLineMenuCell.xib in Resources */,
 				6E9827841F0A91F400860828 /* LaunchScreen.storyboard in Resources */,
 				2BC7828C2127EFCB009999F6 /* InitializingWithoutStoryboardViewController.storyboard in Resources */,
@@ -766,11 +770,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R33Y42SDDR;
+				DEVELOPMENT_TEAM = 8DXNAW92P3;
 				INFOPLIST_FILE = "iOS Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kazuhiro.hayashi.iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -781,11 +785,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R33Y42SDDR;
+				DEVELOPMENT_TEAM = 8DXNAW92P3;
 				INFOPLIST_FILE = "iOS Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "kazuhiro.hayashi.iOS-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

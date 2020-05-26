@@ -26,7 +26,17 @@ import UIKit
 import PagingKit
 
 class TwoLineMenuCell: PagingMenuViewCell {
-    @IBOutlet weak var subTitleLabel: UILabel!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+
+    /*
+    public func updateMask(animated: Bool = true) {
+        guard let menuView = referencedMenuView, let focusView = referencedFocusView else {
+            return
+        }
+        
+        setFrame(menuView, maskFrame: focusView.frame, animated: animated)
+    }
+ */
 }
